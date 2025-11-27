@@ -25,10 +25,10 @@ This ETL pipeline processes device data from raw CSV files, transforms the data 
 │ • Raw data      │      │ • Calculate metrics  │      │                     │
 └─────────────────┘      └──────────────────────┘      └─────────────────────┘
          │                                                       │
-         │ (trigger checks                                      │
-         │  for new files)                                      v
+         │ (trigger checks                                       │
+         │  for new files)                                       v
          │                                              ┌─────────────────┐
-         └──────────────────────────────────────────>  │ Logic App       │
+         └──────────────────────────────────────────>   │ Logic App       │
                                                         │ (Email          │
                                                         │ Notification)   │
                                                         └─────────────────┘
@@ -88,10 +88,10 @@ This ETL pipeline processes device data from raw CSV files, transforms the data 
 ║                │                              │                        ║
 ║                │ reads                        │ writes                 ║
 ║                v                              ^                        ║
-║  ┌──────────────────────────────────────────────────────┐              ║
-║  │          Azure Data Factory               │                         ║
-║  │                                                      │              ║
-║  │  ┌────────────────────────────────────────────────┐ │               ║
+║  ┌────────────────────────────────────────────────────┐                ║
+║  │          Azure Data Factory                        │                ║
+║  │                                                    │                ║
+║  │  ┌───────────────────────────────────────────────┐ │                ║
 ║  │  │  ETL Pipeline: process_per_device             │ │                ║
 ║  │  │                                               │ │                ║
 ║  │  │  Components:                                  │ │                ║
@@ -104,8 +104,8 @@ This ETL pipeline processes device data from raw CSV files, transforms the data 
 ║  │  │  • Sinks:                                     │ │                ║
 ║  │  │    - historical (by-timestamp)                │ │                ║
 ║  │  │    - latest                                   │ │                ║
-║  │  └────────────────────────────────────────────────┘ │               ║
-║  └──────────────────────────────────────────────────────┘              ║
+║  │  └───────────────────────────────────────────────┘ │                ║
+║  └────────────────────────────────────────────────────┘                ║
 ║                                │                                       ║
 ║                                │ triggers on completion                ║
 ║                                v                                       ║
@@ -339,6 +339,3 @@ processed-data/
 - Logic App triggers on pipeline completion
 - Email sent
 - Success/failure status indicated
-## Support
-
-For issues or questions, please contact the development team or create an issue in the project repository.
